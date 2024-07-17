@@ -10,14 +10,20 @@ import java.util.List;
 public class Program {
      public static void main(String[] args) {
           SellerDao sellerDao = DaoFactory.createSellerDao();
-          System.out.println("=== teste 1: seller findByid ===");
+          System.out.println("\n=== teste 1: seller findByid ===");
           Seller seller = sellerDao.findById(3);
           System.out.println(seller);
 
-          System.out.println("=== teste 2: seller findByDepartment ===");
+          System.out.println("\n=== teste 2: seller findByDepartment ===");
           Department department = new Department(2, null);
           List<Seller> list = sellerDao.findByDepartment(department);
-          for(Seller obj : list) {
+          for (Seller obj : list) {
+               System.out.println(obj);
+          }
+
+          System.out.println("\n=== teste 2: seller findAll ===");
+          list = sellerDao.findAll();
+          for (Seller obj : list) {
                System.out.println(obj);
           }
      }
